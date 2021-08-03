@@ -20,7 +20,7 @@ Enter your password when prompted. If asked to accept any credentials, type `yes
 
 If you have successfully logged in, you should see your command prompt change
 
-```bash
+```output
 username@zeus-1:~>
 ```
 
