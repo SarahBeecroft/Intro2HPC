@@ -12,6 +12,25 @@ keypoints:
 - Being able to check the status of your job is useful
 ---
 
+### Using sinfo to see what resources are available
+To view the state of the many nodes
+```bash
+sinfo
+```
+
+```output
+PARTITION AVAIL JOB_SIZE  TIMELIMIT   CPUS  S:C:T   NODES STATE      NODELIST
+workq*    up    1-8      1-00:00:00     28 2:14:1      29 mixed      z[043-045,047-048,051,053,055-058,060,091-092,094-100,109-110,115-116,122-125]
+workq*    up    1-8      1-00:00:00     28 2:14:1      55 allocated  z[046,049-050,052,054,059,061-090,093,101-108,111-114,117-121,126]
+longq     up    1        4-00:00:00     28 2:14:1       4 mixed      z[122-125]
+longq     up    1        4-00:00:00     28 2:14:1       4 allocated  z[119-121,126]
+debugq    up    1-4         1:00:00     28 2:14:1       4 idle       z[127-130]
+highmemq  up    1-4      4-00:00:00     16  2:8:1       1 allocated  z135
+highmemq  up    1-4      4-00:00:00     16  2:8:1       5 idle       z[136-140]
+copyq     up    1-infini 2-00:00:00     32 2:16:1       1 down*      hpc-data7
+copyq     up    1-infini 2-00:00:00     32 2:16:1       6 idle       hpc-data[1-6]
+copyq     up    1-infini 2-00:00:00     32 2:16:1       1 down       hpc-data8
+```
 
 ### Using squeue to check running jobs
 To see what jobs are already running in the local cluster
