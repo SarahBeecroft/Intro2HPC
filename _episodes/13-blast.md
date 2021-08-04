@@ -1,27 +1,23 @@
 ---
-title: "Breakout Room 1: use BLAST from a container"
+title: "Running BLAST on HPC"
 teaching: 0
 exercises: 20
 questions:
 objectives:
-- Run a real-world bioinformatics application in a container
+- Run a real-world bioinformatics applicationon HPC
 keypoints:
-- Lookup for containers in online image registries
-- Download container images with `singularity pull`
-- Perform a simple test to check the application works, *e.g.* request the help output
-- Run application commands in a container by prepending with `singularity exec <image>` 
+- xxxx 
 ---
 
 
 ### Goal
 
-In this first breakout room, you're going to lookup for a BLAST container image, download it, test it, and finally use it to run a quick blasting.  
-This example is adapted from the [BioContainers documentation](http://biocontainers-edu.biocontainers.pro/en/latest/running_example.html).
+In this exercise, you're going to download BLAST reference sequences to Zeus, make a BLAST database, and run queries in series (one at a time). 
 
 Before you start, `cd` into the appropriate directory:
 
 ```bash
-cd /data/bio-intro-containers/exercises/blast_1
+cd XXXX
 ```
 
 
@@ -52,52 +48,6 @@ cd /data/bio-intro-containers/exercises/blast_1
 >
 > We've pre-cached this image in the virtual machine for this tutorial, so the following pull process should only take a few seconds.
 {: .callout}
-
-
-> ## Pull the container image for BLAST
-> 
-> To this end let's use the appropriate `singularity` command.
-> 
-> > ## Solution
-> > 
-> > ```bash
-> > singularity pull docker://quay.io/biocontainers/blast:2.9.0--pl526h3066fca_4
-> > ```
-> > 
-> > At the end an image SIF file for BLAST is downloaded:
-> > 
-> > ```bash
-> > ls blast*
-> > ```
-> > 
-> > ```output
-> > blast_2.9.0--pl526h3066fca_4.sif
-> > ```
-> {: .solution}
-{: .challenge}
-
-
-> ## Run a test command
->
-> Now run a simple command using the image you just pulled, for instance `blastp -help`, to verify that it actually works.
->
-> > ## Solution
-> >
-> > ```bash
-> > singularity exec blast_2.9.0--pl526h3066fca_4.sif blastp -help
-> > ```
-> >
-> > ```output
-> > USAGE
-> >   blastp [-h] [-help] [-import_search_strategy filename]
-> >
-> > [..]
-> >
-> >  -use_sw_tback
-> >    Compute locally optimal Smith-Waterman alignments?
-> > ```
-> {: .solution}
-{: .challenge}
 
 
 Now, the demo directory `exercises/blast_1` contains a human prion FASTA sequence, `P04156.fasta`, as well as a gzipped reference database to blast against, `zebrafish.1.protein.faa.gz`.  Let us uncompress the database first:
@@ -151,7 +101,7 @@ Now let's proceed to the final alignment step using `blastp`.
 > > ## Solution
 > >
 > > ```bash
-> > singularity exec blast_2.9.0--pl526h3066fca_4.sif blastp -query P04156.fasta -db zebrafish.1.protein.faa -out results.txt
+> > blastp -query P04156.fasta -db zebrafish.1.protein.faa -out results.txt
 > > ```
 > {: .solution}
 {: .challenge}
@@ -178,4 +128,4 @@ Sequences producing significant alignments:                          (Bits)  Val
 
 When you're done, quit the view by hitting the `q` button.
 
-Well done, you've just BLASTed a sequence using a container!
+Well done, you've just BLASTed some sequences!
