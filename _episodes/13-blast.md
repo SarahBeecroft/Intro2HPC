@@ -14,40 +14,33 @@ keypoints:
 
 In this exercise, you're going to download BLAST reference sequences to Zeus, make a BLAST database, and run queries in series (one at a time). 
 
+Now, the demo directory `exercises/sequential` contains two scripts. One script is to download the fasta files, and the other is to perform the BLAST query.
+
 Before you start, `cd` into the appropriate directory:
 
 ```bash
-cd XXXX
+cd $MYSCRATCH/Intro2HPC/exercises/sequential
 ```
 
-
-> ## Search for a BLAST container image in a registry
+> ## Run a BLAST query using sbatch scripting
+> To set your job script running
 > 
-> Today you're using the web registry **RedHat Quay**, at [https://quay.io](https://quay.io), to search the image we need.  This registry contains all the images provided by the **BioContainers** project, so there are good chances of finding what you need here.  The BioContainers home page, [https://biocontainers.pro](https://biocontainers.pro), also has a search function, however its user interface is a bit less friendly right now.
+> ```bash
+> sbatch blast.sh
+> ```
 > 
-> Now try and find the *most recent* container image for BLAST by BioContainers, using the Quay web site.
+> This script will launch both the download script and perform the BLAST query. How did it manage that? Hint: use `cat blast.sh` to view the contents of the script.
+> > ## Solution
+> > The blast.sh script executes the `download.sh` script. This is run within the existing job, and saves ypu the hassle of launching two job scripts. 
+>  {: .solution}
+>  
+> How can you check the status of these jobs and view the job ID while they're running?
 > 
 > > ## Solution
-> > 
-> > * Go to https://quay.io (NO registration required!);
-> > * Locate the *EXPLORE* button on the top of the page, click on it, then in the search field type `blast`;
-> > * We want an image from `biocontainers`, so look for `biocontainers/blast` and click on it;
-> > * Click on the *Tags* icon on the left, and scroll the list of images to look for the highest Blast version, at the time of writing, it's (`2.10.1`; among the multiple tags for this version, identify the most recent one;
-> > * At the time of writing, the resulting image tag will be `2.10.1--pl526he19e7b1_2`;
-> > * You can click on the *Fetch* icon at the rightmost side of the record, select *Pull by Tag*, and then copy the full image name in your clipboard.
-> > * At the time of writing, the full image specification is then `quay.io/biocontainers/blast:2.10.1--pl526he19e7b1_2`.
+> > `squeue -u username`
 > {: .solution}
+> 
 {: .challenge}
-
-
-> ## IMPORTANT: which image to use for the next steps?
-> 
-> As we don't continuously update the content of this tutorial, please use the following image for the rest of this BLAST example:
-> 
-> `quay.io/biocontainers/blast:2.9.0--pl526h3066fca_4`
->
-> We've pre-cached this image in the virtual machine for this tutorial, so the following pull process should only take a few seconds.
-{: .callout}
 
 
 Now, the demo directory `exercises/blast_1` contains a human prion FASTA sequence, `P04156.fasta`, as well as a gzipped reference database to blast against, `zebrafish.1.protein.faa.gz`.  Let us uncompress the database first:
