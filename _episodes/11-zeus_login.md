@@ -31,7 +31,8 @@ If you are unable to login, please first check your password was typed correctly
 There are some materials for the lessons which are hosted on github. In order to access those on Zeus, you will need to clone the git repo, then change directory. You can list the contents of the directory with `ls`
 
 ```bash
-git clone http://github.XXXXXXXX
-cd XXXXXXX
+cd $MYSCRATCH
+git clone https://github.com/SarahBeecroft/Intro2HPC.git
+cd Intro2HPC
 ls
 ```
