@@ -32,14 +32,13 @@ cd $MYSCRATCH/Intro2HPC/exercises/sequential
 > This script will launch both the download script and perform the BLAST query. How did it manage that? Hint: use `cat blast.sh` to view the contents of the script.
 > > ## Solution
 > > The blast.sh script executes the `download.sh` script. This is run within the existing job, and saves ypu the hassle of launching two job scripts. 
->  {: .solution}
+> {: .solution}
 >  
 > How can you check the status of these jobs and view the job ID while they're running?
 > 
 > > ## Solution
 > > `squeue -u username`
 > {: .solution}
-> 
 {: .challenge}
 
 
