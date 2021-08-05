@@ -1,8 +1,8 @@
 #!/bin/bash -l
 #SBATCH --reservation=UWAHPC
-#SBATCH -A courses01
-#SBATCH -n 1
-#SBATCH -t 00:05:00
+#SBATCH --account=courses01
+#SBATCH --n-tasks=1
+#SBATCH --time=00:05:00
 #SBATCH --export=NONE
 
 # Swap gcc module version
