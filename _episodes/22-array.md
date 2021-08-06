@@ -58,3 +58,18 @@ cd $MYSCRATCH/Intro2HPC/exercises/jobarray
 >   Check your results files with `less resultN.txt` where N is a number from 1-4. Did it work ok?
 >   {: .solution}
 {: .challenge}
+
+### What if your files don't have numerical based naming?
+In many bioinformatics workflows, your file names will have non-standard formats. How can you run a job array on some files that are aren't labelled in some ordered fashion, and it doesn't make sense to rename them all? One way is to base the array around a regular expression using the file names and extensions. For example, let's say our files are called
+```output
+zeb_Q4LEZ3.fasta
+zeb_Q96SE0.fasta 
+zeb_Q9UGJ0.fasta 
+zeb_Q9H221.fasta 
+```
+
+Let's look at how we could handle this common issue
+
+> 
+
+
