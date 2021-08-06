@@ -70,6 +70,3 @@ zeb_Q9H221.fasta
 
 Let's look at how we could handle this common issue
 
-> 
-
-
