@@ -4,9 +4,10 @@ teaching: 0
 exercises: 20
 questions:
 objectives:
-- Run a real-world bioinformatics applicationon HPC
+- Run a real-world bioinformatics application on HPC
 keypoints:
-- xxxx 
+- Submit jobs to the queue using a job script
+- `#SBATCH` flags allow you to change resource allocations, jobs names and other aspects of your job 
 ---
 
 
@@ -14,7 +15,7 @@ keypoints:
 
 In this exercise, you're going to download BLAST reference sequences to Zeus, make a BLAST database, and run queries in series (one at a time). 
 
-Now, the demo directory `exercises/sequential` contains two scripts. One script is to download the fasta files, and the other is to perform the BLAST query.
+The demo directory `exercises/sequential` contains two scripts. One script is to download the fasta files, and the other is to perform the BLAST query.
 
 Before you start, `cd` into the appropriate directory:
 
