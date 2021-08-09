@@ -46,7 +46,8 @@ cd $MYSCRATCH/Intro2HPC/exercises/jobarray
 > > Solution
 > > 
 > > `#SBATCH --array=1-4`
-> {: .solution}
+> > 
+> 
 >
 > Now, edit your job script to include the job array line with your favourite text editor (e.g. nano, emacs, vim. If you're not sure, choose nano.)
 > ```bash
@@ -57,6 +58,7 @@ cd $MYSCRATCH/Intro2HPC/exercises/jobarray
 > Watch your jobs get spawned with `watch squeue -u username`
 > Hit `ctrl + c` to exit out from watching the job queue.
 > Check your results files with `less resultN.txt` where N is a number from 1-4. Did it work ok?
+> {: .solution}
 {: .challenge}
 
 ### What if your files don't have numerical based naming?
