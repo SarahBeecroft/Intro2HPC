@@ -25,7 +25,7 @@ echo "- SLURM_ARRAY_TASK_ID=${SLURM_ARRAY_TASK_ID}"
  
  
 # alter the following line to suit your files. It will grab all files matching whatever regular expression you provide.
-FILES=($(ls -1 *.fasta))
+FILES=$(ls *.fasta)
  
 # grabs our filename from a directory listing
 FILENAME=${FILES[$SLURM_ARRAY_TASK_ID]}
