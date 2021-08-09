@@ -6,11 +6,12 @@
 #SBATCH --reservation=UWAHPC
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=1
-#SBATCH --array=1-4
 #SBATCH --account=courses01
 #SBATCH --time=00:05:00
+#SBATCH --job-name=named_array
 #SBATCH --export=NONE
-#SBATCH --output=MYJOB-%j.log
+#SBATCH --output=named_array-%j.log
+
  
  
 #Do not edit the echo sections
