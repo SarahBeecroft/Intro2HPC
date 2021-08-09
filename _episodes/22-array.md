@@ -43,7 +43,7 @@ cd $MYSCRATCH/Intro2HPC/exercises/jobarray
 > 
 > What range would you set in your jobscript `blast_array.sh` to have the script launch all 4 jobs?
 > 
-> > Solution
+> > ## Solution
 > > 
 > > `#SBATCH --array=1-4`
 > > 
@@ -71,4 +71,59 @@ zeb_Q9H221.fasta
 ```
 
 Let's look at how we could handle this common issue
+
+Since we know that all our files have the same extension (.fasta) we can use this to form a regular expression to grab our file names, using the * wildcard. 
+```bash
+ls *.fasta
+```
+```output
+zeb_Q4LEZ3.fasta zeb_Q96SE0.fasta zeb_Q9UGJ0.fasta zeb_Q9H221.fasta 
+```
+
+Using this, we can store all the fasta file names into a `FILES`. We can do this with the following command. This defines the FILES variable by calling on a sub-shell within the `$( )`, which executes the ls command.
+```bash
+FILES=$(ls *.fasta)
+```
+```output
+zeb_Q4LEZ3.fasta zeb_Q96SE0.fasta zeb_Q9UGJ0.fasta zeb_Q9H221.fasta 
+```
+
+We can then leverage this in our job script to provide each file name with a job array number, and tell us the job name.
+```bash
+FILENAME=${FILES[$SLURM_ARRAY_TASK_ID]}
+echo "My input file is ${FILENAME}"
+```
+It's also important to have the job array flag use 0-indexing, i.e. the array starts at 0, when you use this approach. 
+```bash
+#SBATCH --array=0-3
+```
+
+> ## Now it's your turn
+> Let's implement what we just learned by editing our job script to run the job array on our fasta files, based on the regular expression.
+> First, open your `named_array.sh` script with your favourite editor, e.g. 
+> ```bash
+> nano named_array.sh
+> ```
+> Now, what text do you need to add to make the jobs script work?
+> > ## Solution
+> > ```bash
+> > #SBATCH --array=0-3
+> > 
+> > \[...]
+> > 
+> > FILES=$(ls \*.fasta)
+> > 
+> > \[...]
+> > 
+> > FILENAME=${FILES\[$SLURM_ARRAY_TASK_ID]}
+> > echo "My input file is ${FILENAME}"
+> > ```
+> Then test out your script with `sbatch named_array.sh`
+> It should launch your jobs the same way as with the numbered array! 
+> {: .solution}
+{: .challenge}
+```
+
+
+
 
