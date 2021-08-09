@@ -8,8 +8,9 @@
 #SBATCH --cpus-per-task=1
 #SBATCH --account=courses01
 #SBATCH --time=00:05:00
+#SBATCH --job-name=named_array
 #SBATCH --export=NONE
-#SBATCH --output=MYJOB-%j.log
+#SBATCH --output=named_array-%j.log
 
 # EDIT THIS LINE
 #SBATCH --array=
