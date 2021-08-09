@@ -99,7 +99,7 @@ It's also important to have the job array flag use 0-indexing, i.e. the array st
 #SBATCH --array=0-3
 ```
 
-> ## Now it's your turn
+> ## Edit the job script for the array
 > Let's implement what we just learned by editing our job script to run the job array on our fasta files, based on the regular expression.
 > First, open your `named_array.sh` script with your favourite editor, e.g. 
 > ```bash
