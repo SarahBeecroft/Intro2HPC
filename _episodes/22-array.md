@@ -30,10 +30,10 @@ cd $MYSCRATCH/Intro2HPC/exercises/jobarray
 > Let's adapt the code from our previous (blast.sh). For convenience, a version of this is provded for you in the current directory, titled `blast_array.sh`. 
 > As you remember, the script ran 4 BLAST queries, one after the other. Each input file had an identifier of a number from 1-4, and the results were also identified from 1-4. Let's look at the commands to refresh
 > ```bash
-blastp -use_sw_tback -query 1.fasta -db zebrafish.1.protein.faa -out result1.txt
-blastp -use_sw_tback -query 2.fasta -db zebrafish.1.protein.faa -out result2.txt
-blastp -use_sw_tback -query 3.fasta -db zebrafish.1.protein.faa -out result3.txt
-blastp -use_sw_tback -query 4.fasta -db zebrafish.1.protein.faa -out result4.txt
+> blastp -use_sw_tback -query 1.fasta -db zebrafish.1.protein.faa -out result1.txt
+> blastp -use_sw_tback -query 2.fasta -db zebrafish.1.protein.faa -out result2.txt
+> blastp -use_sw_tback -query 3.fasta -db zebrafish.1.protein.faa -out result3.txt
+> blastp -use_sw_tback -query 4.fasta -db zebrafish.1.protein.faa -out result4.txt
 > ```
 > The flag to set an array is `#SBATCH --array=A-Z`, where A and Z specify the start and end of a range of numbers. 
 > 
@@ -46,7 +46,8 @@ blastp -use_sw_tback -query 4.fasta -db zebrafish.1.protein.faa -out result4.txt
 > > Solution
 > > 
 > > `#SBATCH --array=1-4`
-> > 
+>{: .solution}
+>
 > Now, edit your job script to include the job array line with your favourite text editor (e.g. nano, emacs, vim. If you're not sure, choose nano.)
 > ```bash
 > nano blast_array.sh
@@ -56,7 +57,6 @@ blastp -use_sw_tback -query 4.fasta -db zebrafish.1.protein.faa -out result4.txt
 > Watch your jobs get spawned with `watch squeue -u username`
 > Hit `ctrl + c` to exit out from watching the job queue.
 > Check your results files with `less resultN.txt` where N is a number from 1-4. Did it work ok?
-> {: .solution}
 {: .challenge}
 
 ### What if your files don't have numerical based naming?
