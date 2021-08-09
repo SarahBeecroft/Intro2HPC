@@ -15,9 +15,10 @@ keypoints:
 Why use a job array?
 Job arrays are really useful when you need to run the same program over a number of files. In non-supercomputing environments, you might use a (for) loop or gnu parallel. However, we can make slurm perform parallelisation for us with minimal effort by making use of the `--array` flag.
 
-Make sure you're in the right directory
+Make sure you're in the right directory, and prepare the input files for this section
 ```bash
 cd $MYSCRATCH/Intro2HPC/exercises/jobarray
+sbatch makedb.sh
 ```
 
 > ## Use two terminal windows if you can
@@ -119,6 +120,7 @@ It's also important to have the job array flag use 0-indexing, i.e. the array st
 > > echo "My input file is ${FILENAME}"
 > > ```
 > Then test out your script with `sbatch named_array.sh`
-> It should launch your jobs the same way as with the numbered array! 
+> It should launch your jobs the same way as with the numbered array! Check with `squeue -u username`
+> 
 > {: .solution} 
 {: .challenge} 
