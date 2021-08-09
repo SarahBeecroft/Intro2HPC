@@ -122,7 +122,6 @@ It's also important to have the job array flag use 0-indexing, i.e. the array st
 > It should launch your jobs the same way as with the numbered array! 
 > {: .solution}
 {: .challenge}
-```
 
 
 
