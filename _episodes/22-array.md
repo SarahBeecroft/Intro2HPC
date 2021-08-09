@@ -120,8 +120,8 @@ It's also important to have the job array flag use 0-indexing, i.e. the array st
 > > ```
 > Then test out your script with `sbatch named_array.sh`
 > It should launch your jobs the same way as with the numbered array! 
-> {: .solution}
-{: .challenge}
+> {: .solution} 
+{: .challenge} 
 
 
 
