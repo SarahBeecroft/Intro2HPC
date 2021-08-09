@@ -58,8 +58,8 @@ cd $MYSCRATCH/Intro2HPC/exercises/jobarray
 > Watch your jobs get spawned with `watch squeue -u username`
 > Hit `ctrl + c` to exit out from watching the job queue.
 > Check your results files with `less resultN.txt` where N is a number from 1-4. Did it work ok?
-> {: .solution}
-{: .challenge}
+> {: .solution} 
+{: .challenge} 
 
 ### What if your files don't have numerical based naming?
 In many bioinformatics workflows, your file names will have non-standard formats. How can you run a job array on some files that are aren't labelled in some ordered fashion, and it doesn't make sense to rename them all? One way is to base the array around a regular expression using the file names and extensions. For example, let's say our files are called
@@ -122,7 +122,3 @@ It's also important to have the job array flag use 0-indexing, i.e. the array st
 > It should launch your jobs the same way as with the numbered array! 
 > {: .solution} 
 {: .challenge} 
-
-
-
-
