@@ -10,32 +10,32 @@ keypoints:
 - Specify a job array with `#SBATCH --array` flag
 ---
 
-
-### Setting up a job array
-Why use a job array?
-Job arrays are really useful when you need to run the same program over a number of files. In non-supercomputing environments, you might use a (for) loop or gnu parallel. However, we can make slurm perform parallelisation for us with minimal effort by making use of the `--array` flag.
-
-Make sure you're in the right directory, and prepare the input files for this section
-```bash
-cd $MYSCRATCH/Intro2HPC/exercises/jobarray
-sbatch makedb.sh
-```
-
 > ## Use two terminal windows if you can
 >
 > If you can, open at least two terminal windows, and connect to the VM from both of them.  In this way, you can use one to edit files, and one to execute commands, thus making your workflow more efficient.
 {: .callout}
 
+### Why use a job array?
+Job arrays are really useful when you need to run the same program over a number of files. In non-supercomputing environments, you might use a (for) loop or gnu parallel. However, we can make slurm perform parallelisation for us with minimal effort by making use of the `--array` flag. SLURM will launch a sub-job for each input file simultaneously, or as resources become available. Running jobs in parallel, rather than one after the other, saves a lot of time for you as the user. 
+
 
 > ## How to setup an array
+> Make sure you're in the right directory, and prepare the input files for this section
+> ```bash
+> cd $MYSCRATCH/Intro2HPC/exercises/jobarray
+> sbatch makedb.sh
+> ```
+> 
 > Let's adapt the code from our previous (blast.sh). For convenience, a version of this is provded for you in the current directory, titled `blast_array.sh`. 
 > As you remember, the script ran 4 BLAST queries, one after the other. Each input file had an identifier of a number from 1-4, and the results were also identified from 1-4. Let's look at the commands to refresh
+> 
 > ```bash
 > blastp -use_sw_tback -query 1.fasta -db zebrafish.1.protein.faa -out result1.txt
 > blastp -use_sw_tback -query 2.fasta -db zebrafish.1.protein.faa -out result2.txt
 > blastp -use_sw_tback -query 3.fasta -db zebrafish.1.protein.faa -out result3.txt
 > blastp -use_sw_tback -query 4.fasta -db zebrafish.1.protein.faa -out result4.txt
 > ```
+> 
 > The flag to set an array is `#SBATCH --array=A-Z`, where A and Z specify the start and end of a range of numbers. 
 > 
 > You can also specify specific numbers (e.g. `#SBATCH --array=1,3`. 
@@ -121,6 +121,8 @@ It's also important to have the job array flag use 0-indexing, i.e. the array st
 > > ```
 > Then test out your script with `sbatch named_array.sh`
 > It should launch your jobs the same way as with the numbered array! Check with `squeue -u username`
-> 
+> You can also check the output files with `less`. Press `q` to exit out of `less`
 > {: .solution} 
 {: .challenge} 
+
+You can now run job arrays in two different ways! 
