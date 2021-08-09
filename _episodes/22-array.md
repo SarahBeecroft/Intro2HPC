@@ -53,16 +53,13 @@ Job arrays are really useful when you need to run the same program over a number
 > ```bash
 > nano blast_array.sh
 > ```
+> 
 > Hit `ctrl + o` to save your changes, and `ctrl + x` to exit nano.
 > Now submit your script with `sbatch blast_array.sh`
 > Watch your jobs get spawned with `watch squeue -u username`
 > Hit `ctrl + c` to exit out from watching the job queue.
 > Check your results files with `less resultN.txt` where N is a number from 1-4. Did it work ok?
 >
-> > ## Solution
-> > 
-> > `#SBATCH --array=1-4`
-> > 
 > {: .solution} 
 {: .challenge} 
 
