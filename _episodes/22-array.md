@@ -49,7 +49,6 @@ Job arrays are really useful when you need to run the same program over a number
 > > `#SBATCH --array=1-4`
 > > 
 > 
->
 > Now, edit your job script to include the job array line with your favourite text editor (e.g. nano, emacs, vim. If you're not sure, choose nano.)
 > ```bash
 > nano blast_array.sh
@@ -59,6 +58,22 @@ Job arrays are really useful when you need to run the same program over a number
 > Watch your jobs get spawned with `watch squeue -u username`
 > Hit `ctrl + c` to exit out from watching the job queue.
 > Check your results files with `less resultN.txt` where N is a number from 1-4. Did it work ok?
+> > ## Solution
+> > ```bash
+> > #SBATCH --array=0-3
+> > 
+> > [...]
+> > 
+> > FILES=$(ls *.fasta)
+> > 
+> > [...]
+> > 
+> > FILENAME=${FILES[$SLURM_ARRAY_TASK_ID]}
+> > echo "My input file is ${FILENAME}"
+> > ```
+> Then test out your script with `sbatch named_array.sh`
+> It should launch your jobs the same way as with the numbered array! Check with `squeue -u username`
+> You can also check the output files with `less`. Press `q` to exit out of `less`
 > {: .solution} 
 {: .challenge} 
 
