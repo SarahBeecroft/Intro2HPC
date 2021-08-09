@@ -46,7 +46,7 @@ cd $MYSCRATCH/Intro2HPC/exercises/jobarray
 > > Solution
 > > 
 > > `#SBATCH --array=1-4`
->{: .solution}
+> {: .solution}
 >
 > Now, edit your job script to include the job array line with your favourite text editor (e.g. nano, emacs, vim. If you're not sure, choose nano.)
 > ```bash
