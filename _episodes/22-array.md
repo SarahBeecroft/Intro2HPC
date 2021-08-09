@@ -109,13 +109,13 @@ It's also important to have the job array flag use 0-indexing, i.e. the array st
 > > ```bash
 > > #SBATCH --array=0-3
 > > 
-> > \[...]
+> > [...]
 > > 
-> > FILES=$(ls \*.fasta)
+> > FILES=$(ls *.fasta)
 > > 
-> > \[...]
+> > [...]
 > > 
-> > FILENAME=${FILES\[$SLURM_ARRAY_TASK_ID]}
+> > FILENAME=${FILES[$SLURM_ARRAY_TASK_ID]}
 > > echo "My input file is ${FILENAME}"
 > > ```
 > Then test out your script with `sbatch named_array.sh`
