@@ -26,7 +26,7 @@ Job arrays are really useful when you need to run the same program over a number
 > sbatch makedb.sh
 > ```
 > 
-> Let's adapt the code from our previous (blast.sh). For convenience, a version of this is provded for you in the current directory, titled `blast_array.sh`. 
+> Let's adapt the code from our previous (`blast.sh`). For convenience, a version of this is provded for you in the current directory, titled `blast_array.sh`. 
 > As you remember, the script ran 4 BLAST queries, one after the other. Each input file had an identifier of a number from 1-4, and the results were also identified from 1-4. Let's look at the commands to refresh
 > 
 > ```bash
@@ -78,7 +78,7 @@ zeb_Q9H221.fasta
 
 Let's look at how we could handle this common issue
 
-Since we know that all our files have the same extension (.fasta) we can use this to form a regular expression to grab our file names, using the * wildcard. 
+Since we know that all our files have the same extension (`.fasta`) we can use this to form a regular expression to grab our file names, using the `*` wildcard. 
 ```bash
 ls *.fasta
 ```
@@ -86,7 +86,7 @@ ls *.fasta
 zeb_Q4LEZ3.fasta zeb_Q96SE0.fasta zeb_Q9UGJ0.fasta zeb_Q9H221.fasta 
 ```
 
-Using this, we can store all the fasta file names into a `FILES`. We can do this with the following command. This defines the FILES variable by calling on a sub-shell within the `$( )`, which executes the ls command.
+Using this, we can store all the fasta file names into a `FILES`. We can do this with the following command. This defines the `FILES` variable by calling on a sub-shell within the `$( )`, which executes the `ls` command.
 ```bash
 FILES=$(ls *.fasta)
 ```
