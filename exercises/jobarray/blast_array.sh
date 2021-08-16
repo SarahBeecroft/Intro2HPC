@@ -7,6 +7,7 @@
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=1
 #SBATCH --account=courses01
+#SBATCH --mem-per-cpu=1000M
 #SBATCH --time=00:05:00
 #SBATCH --export=NONE
 #SBATCH --output=MYJOB-%j.log
