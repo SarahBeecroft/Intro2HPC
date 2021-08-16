@@ -20,7 +20,7 @@ The supercomputing admin staff make available many popular packages, so that use
 > ```
 > 
 > ```output
->    blast+/2.7.1 blast+/2.10.1 #Example output edited for clarity
+> blast+/2.7.1 blast+/2.10.1 #Example output edited for clarity
 > ```
 > We have two versions to choose from: versions 2.7.1 and 2.10.1, as indicated by the numbers after the slash. Let's choose 2.7.1 for this example. 
 > To load a module with a specific version number, use
