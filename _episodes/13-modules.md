@@ -116,10 +116,10 @@ module avail
    bcftools/1.6            breakdancer/1.1.2_2013_03_08        fastx_toolkit/0.0.14        khmer/2.1.2                   pysam/0.13  
    beagle-lib/2.1.2        bsmap/2.90                          freebayes/0.9.21            lastz/1.04.00                 raxml/8.2.11
    beast/1.8.4             bsseeker2/2.1.3                     gblock/0.91b                libgtextutils/0.7             rsem/1.3.0  
-   beast/2.4.7      (D)    bwa/0.7.17                          gcta/1.26.0                 mach/1.0.18                   rsem/1.3.3          (D)
+   beast/2.4.7      (D)    bwa/0.7.17                          gcta/1.26.0                 mach/1.0.18                   rsem/1.3.3      (D)
    bedtools/2.26.0         canu/1.6                            geneid/1.4.4                mafft/7.313                   samblaster/0.1.24
    bioperl/1.7.1           cap3/20130608                       glimmer/3.02b               mcl/14-137                    samtools/0.1.19  
-   biopython/1.70          cdhit/4.6.8                         glimmerhmm/3.0.4            mrbayes/3.2.6                 samtools/1.6        (D)
+   biopython/1.70          cdhit/4.6.8                         glimmerhmm/3.0.4            mrbayes/3.2.6                 samtools/1.6    (D)
    bismark/0.19.0          chunkchromosome/2014-05-27          gmap/2017-11-15             mummer/3.23                   scarpa/0.241           
    blast+/2.7.1            clustalw/2.1                        hmmer/3.0            (D)    muscle/3.8.1551               screed/1.0             
    blast+/2.10.1    (D)    emboss/6.6.0                        hmmer/3.1b2                 ngs/1.3.0                     seqtk-trinity/0.0.2    
@@ -129,19 +129,19 @@ module avail
    armadillo/8.300.1        curl/7.57.0              glew/2.1.0                                 intel-mpi/2017.0.4   (D)    lmdb/0.9.21         
    autoconf/2.69            dmd/2.077.1              go/1.14.1                                  intel-tbb/2017.0.4          lwgrp/1.0.2         
    automake/1.15            dtcmp/1.0.3              gperftools/2.6.2                           intel/17.0.5         (D)    mbuffer/20171011    
-   bazel/0.12.0             dtcmp/1.1.0     (D)      hdf4/4.2.13                                intel/19.0.5                mpibash/1.2      (D)
+   bazel/0.12.0             dtcmp/1.1.0     (D)      hdf4/4.2.13                                intel/19.0.5                mpibash/1.2   (D)
    boost/1.72.0             eigen/3.2.6     (D)      hdf5/1.10.1                                java/8u151                  mpibash/1.3         
-   boost/1.73.0      (D)    eigen/3.3.4              hdf5/1.12.0-parallel-api-v16               knl/1.0                     mvapich/2.3a     (D)
+   boost/1.73.0      (D)    eigen/3.3.4              hdf5/1.12.0-parallel-api-v16               knl/1.0                     mvapich/2.3a  (D)
    broadwell/1.0            fftw/3.3.7               hdf5/1.12.0-parallel-api-v110              lapack/3.8.0                mvapich/2.3b        
    bzip2/1.0.6              fltk/1.3.4               hdf5/1.12.0-parallel-api-v112              ldc/1.6.0                   netcdf/4.5.0        
    cairo/1.14.10            forge/18.0.2             hdf5/1.12.0-c++-noparallel-api-v16         libarchive/3.3.1            ninja/1.10.2        
    cfitsio/3.420     (D)    forge/18.1.2    (D)      hdf5/1.12.0-c++-noparallel-api-v110        libarchive/3.3.2     (D)    openmpi/2.1.2       
    cfitsio/3450             forge/19.0.3             hdf5/1.12.0-c++-noparallel-api-v112 (D)    libcircle/0.2.1-rc.1 (D)    pcre/8.41           
-   cmake/3.15.0             gcc/4.8.5       (L,D)    intel-daal/2017.0.4                        libcircle/0.2.1             pgi/18.3         (D)
+   cmake/3.15.0             gcc/4.8.5       (L,D)    intel-daal/2017.0.4                        libcircle/0.2.1             pgi/18.3      (D)
    cmake/3.18.0      (D)    gcc/5.5.0                intel-ipp/2017.0.4                         libconfig/1.7.2             pgi/19.1            
    cpprestsdk/2.10.0        gcc/7.2.0                intel-mkl/2017.0.4                  (D)    libjpeg-turbo/1.5.2         pixman/0.34.0       
    cuda/8.0          (D)    gcc/8.3.0                intel-mkl/2017.0.5                         libsodium/1.0.16            qt/4.8.6
-   cuda/10.2                gdrcopy/1.3              intel-mpi/19.0.5                           libxml2/2.9.7               qt/5.9.3         (D)
+   cuda/10.2                gdrcopy/1.3              intel-mpi/19.0.5                           libxml2/2.9.7               qt/5.9.3      (D)
 
 ----------------------------------------- /pawsey/sles12sp3/modulefiles/python -----------------------------------------
    alabaster/0.7.10                     click/6.7                  functools32/3.2.3-2           mercurial/4.4.2             pluggy/0.6.0       
