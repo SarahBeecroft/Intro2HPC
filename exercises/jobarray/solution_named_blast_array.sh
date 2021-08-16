@@ -6,6 +6,7 @@
 #SBATCH --reservation=UWAHPC
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=1
+#SBATCH --mem-per-cpu=1000M
 #SBATCH --account=courses01
 #SBATCH --time=00:05:00
 #SBATCH --job-name=named_array
