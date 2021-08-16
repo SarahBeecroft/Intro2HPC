@@ -5,7 +5,7 @@ exercises: 20
 questions:
 objectives:
 - Explain what modules are
-- List, load, unload and swap modules
+- List, load, unload modules
 keypoints:
 - Modules are a common way of managing software on HPC
 - Make sure to load necessary modules in your job scripts 
