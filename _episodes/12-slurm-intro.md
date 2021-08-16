@@ -74,7 +74,7 @@ squeue -u username
 
 > ## Submitting a job to the queue using sbatch
 > ```bash
-> sbatch test_job.sh
+> sbatch test.sh
 > ```
 >
 > Each job gets a unique identifier (Job ID)
@@ -97,3 +97,33 @@ squeue -u username
 > scancel -u username
 > ```
 {: .challenge}
+
+### Understanding how to allocate resources to a job
+This was touched on in the lecture component of today, but let's revisit by taking a closer look at the `test.sh` script we just ran. 
+```bash
+cat test.sh
+```
+
+```output
+#!/bin/bash -l
+#SBATCH --reservation=UWAHPC
+#SBATCH --account=courses01
+#SBATCH --nodes=1
+#SBATCH --cpus-per-node=1
+#SBATCH --mem-per-cpu=100M
+#SBATCH --time=00:05:00
+#SBATCH --export=NONE
+
+echo 'I am a test job`
+echo `sleeping for 5 minutes`
+sleep 5m
+```
+
+The `#SBATCH` lines specify to SLURM the computational resources/specifications we want for our job. It is also important to note that SLURM job scripts start with `#!/bin/bash` because they are essentially bash scripts. 
+The `--reservation` flag specifies that we will use the special reservation for this training session. You wouldn't need to specify that typically. 
+The `--account` flag tells the system which allocation to 'charge' for the compute time
+The `--nodes` flag specifies how many nodes you want to use
+The `--cores` flag specifies how many cores per node
+The `--mem-per-cpu` flag specifies how much memory to use per CPU. On Zeus the max is 4GB, but for this job it's set very low
+The `--time` flag sets the maximum allowable time for your job to run (i.e. the wall-clock limit). This job is set to get cut-off by SLURM at the 5 minute mark.
+
