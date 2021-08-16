@@ -72,27 +72,28 @@ To refine the listing to a certain user (usually yourself), use the `-u` flag
 squeue -u username
 ```
 
-### Submitting a job to the queue using sbatch
-```bash
-sbatch test_job.sh
-```
-
-Each job gets a unique identifier (Job ID)
-
-Can you see your job running in the queue? What is the jod ID?
-```bash
-squeue -u username
-```
-
-### Cancelling a submitted job using scancel
-Sometimes you will want to cancel a job. Maybe you were just testing the script, or maybe you realised you made a mistake! 
-
-To cancel your specific job
-```bash
-scancel jobID
-```
-
-You can also cancel all jobs under your name with 
-```bash
-scancel -u username
-```
+> ## Submitting a job to the queue using sbatch
+> ```bash
+> sbatch test_job.sh
+> ```
+>
+> Each job gets a unique identifier (Job ID)
+>
+> Can you see your job running in the queue? What is the jod ID?
+> ```bash
+> squeue -u username
+> ```
+>
+> ## Cancelling a submitted job using scancel
+> Sometimes you will want to cancel a job. Maybe you were just testing the script, or maybe you realised you made a mistake! 
+>
+> To cancel your specific job
+> ```bash
+> scancel jobID
+> ```
+>
+> You can also cancel all jobs under your name with 
+> ```bash
+> scancel -u username
+> ```
+{: .challenge}
