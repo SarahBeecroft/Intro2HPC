@@ -31,6 +31,7 @@ The supercomputing admin staff make available many popular packages, so that use
 > ```bash
 > module list
 > ```
+> 
 > ```output
 > Currently Loaded Modules:
 > 1) pawseytools/1.29   2) slurm/20.02.3   3) gcc/4.8.5   4) sandybridge/1.0   5) lmdb/0.9.21   6) blast+/2.7.1
@@ -40,6 +41,7 @@ The supercomputing admin staff make available many popular packages, so that use
 > ```bash
 > blastn -h
 > ```
+> 
 > ```output
 > USAGE
 >  blastn [-h] [-help] [-import_search_strategy filename]
@@ -80,6 +82,7 @@ The supercomputing admin staff make available many popular packages, so that use
 > # Let's check out list of loaded modules again
 > module list
 > ```
+> 
 > ```output
 > Currently Loaded Modules:
 > 1) pawseytools/1.29   2) slurm/20.02.3   3) gcc/4.8.5   4) sandybridge/1.0   5) lmdb/0.9.21
