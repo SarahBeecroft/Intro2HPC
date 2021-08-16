@@ -119,11 +119,17 @@ echo `sleeping for 5 minutes`
 sleep 5m
 ```
 
-The `#SBATCH` lines specify to SLURM the computational resources/specifications we want for our job. It is also important to note that SLURM job scripts start with `#!/bin/bash` because they are essentially bash scripts. 
-The `--reservation` flag specifies that we will use the special reservation for this training session. You wouldn't need to specify that typically. 
-The `--account` flag tells the system which allocation to 'charge' for the compute time
-The `--nodes` flag specifies how many nodes you want to use
-The `--cores` flag specifies how many cores per node
-The `--mem-per-cpu` flag specifies how much memory to use per CPU. On Zeus the max is 4GB, but for this job it's set very low
+The `#SBATCH` lines specify to SLURM the computational resources/specifications we want for our job. It is also important to note that SLURM job scripts start with `#!/bin/bash` because they are essentially bash scripts.  
+
+The `--reservation` flag specifies that we will use the special reservation for this training session. You wouldn't need to specify that typically.  
+
+The `--account` flag tells the system which allocation to 'charge' for the compute time. 
+
+The `--nodes` flag specifies how many nodes you want to use. 
+
+The `--cores` flag specifies how many cores per node. 
+
+The `--mem-per-cpu` flag specifies how much memory to use per CPU. On Zeus the max is 4GB, but for this job it's set very low. 
+
 The `--time` flag sets the maximum allowable time for your job to run (i.e. the wall-clock limit). This job is set to get cut-off by SLURM at the 5 minute mark.
 
