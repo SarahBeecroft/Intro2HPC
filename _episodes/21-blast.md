@@ -7,7 +7,7 @@ objectives:
 - Run a real-world bioinformatics application on HPC
 keypoints:
 - Submit jobs to the queue using a job script
-- `#SBATCH` flags allow you to change resource allocations, jobs names and other aspects of your job 
+- The `#SBATCH` flags allow you to change resource allocations, jobs names and other aspects of your job 
 ---
 
 

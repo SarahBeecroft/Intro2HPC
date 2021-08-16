@@ -13,7 +13,7 @@ keypoints:
 ---
 
 ### Using sinfo to see what resources are available
-To view the state of the many nodes
+To view the state of the available nodes (organised in partitions)
 ```bash
 sinfo
 ```
@@ -67,7 +67,7 @@ JOBID    USER     ACCOUNT     PARTITION            NAME EXEC_HOST ST     REASON 
 5136068  lenhan   dv1         workq           Zues-2.sh       n/a PD ReqNodeNot          N/A          N/A    1:00:00     1      75172
 ```
 
-To refine the listing to a certain user (usually yourself), use the -u flag
+To refine the listing to a certain user (usually yourself), use the `-u` flag
 ```bash
 squeue -u username
 ```
