@@ -13,8 +13,7 @@
 #SBATCH --export=NONE
 #SBATCH --output=named_array-%j.log
 
-# EDIT THIS LINE
-#SBATCH --array=
+ 
  
 #Do not edit the echo sections
 echo "All jobs in this array have:"
@@ -27,11 +26,12 @@ echo "- SLURM_JOB_ID=${SLURM_JOB_ID}"
 echo "- SLURM_ARRAY_TASK_ID=${SLURM_ARRAY_TASK_ID}"
  
  
-# EDIT THIS LINE Add your regular expression here
-
+# alter the following line to suit your files. It will grab all files matching whatever regular expression you provide.
+FILES=$(ls *.fasta)
  
-# EDIT THIS LINE grab filename from directory listing
-
+# grabs our filename from a directory listing
+FILENAME=${FILES[$SLURM_ARRAY_TASK_ID]}
+echo "My input file is ${FILENAME}"
 
 # Swap gcc module version
 module swap gcc/4.8.5 gcc/8.3.0
