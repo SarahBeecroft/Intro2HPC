@@ -36,7 +36,13 @@ Job arrays are really useful when you need to run the same program over a number
 > blastp -use_sw_tback -query 4.fasta -db zebrafish.1.protein.faa -out result4.txt
 > ```
 > 
-> The flag to set an array is `#SBATCH --array=A-Z`, where A and Z specify the start and end of a range of numbers. 
+> In an array setup, these 4 lines can be replaced by a single one, that makes use of an index variable. Such variable comes from slurm, `SLURM_ARRAY_TASK_ID`:
+> 
+> ```bash
+> blastp -use_sw_tback -query ${SLURM_ARRAY_TASK_ID}.fasta -db zebrafish.1.protein.faa -out result${SLURM_ARRAY_TASK_ID}.txt
+> ```
+> 
+> Finally, the flag to set an array is `#SBATCH --array=A-Z`, where A and Z specify the start and end of a range of numbers. 
 > 
 > You can also specify specific numbers (e.g. `#SBATCH --array=1,3`. 
 > 
