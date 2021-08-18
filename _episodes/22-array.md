@@ -92,9 +92,12 @@ ls *.fasta
 zeb_Q4LEZ3.fasta zeb_Q96SE0.fasta zeb_Q9UGJ0.fasta zeb_Q9H221.fasta 
 ```
 
-Using this, we can store all the fasta file names into a `FILES`. We can do this with the following command. This defines the `FILES` variable by calling on a sub-shell within the `$( )`, which executes the `ls` command.
+Using this, we can store all the fasta file names into a `FILES`. We can do this with the following command. This defines the `FILES` array variable by calling on a sub-shell within the `$( )`, which executes the `ls` command. Note the wrapping set of round brackets, required to define a bash array.
 ```bash
-FILES=$(ls *.fasta)
+FILES=($(ls zeb*.fasta))
+
+# to inspect its contents
+echo ${FILES[*]}
 ```
 ```output
 zeb_Q4LEZ3.fasta zeb_Q96SE0.fasta zeb_Q9UGJ0.fasta zeb_Q9H221.fasta 
@@ -123,7 +126,7 @@ It's also important to have the job array flag use 0-indexing, i.e. the array st
 > > 
 > > [...]
 > > 
-> > FILES=$(ls *.fasta)
+> > FILES=($(ls zebrafish*.fasta))
 > > 
 > > [...]
 > > 
@@ -131,8 +134,8 @@ It's also important to have the job array flag use 0-indexing, i.e. the array st
 > > echo "My input file is ${FILENAME}"
 > > ```
 > Then test out your script with `sbatch named_array.sh`
-> It should launch your jobs the same way as with the numbered array! Check with `squeue -u username`
-> You can also check the output files with `less`. Press `q` to exit out of `less`
+> It should launch your jobs the same way as with the numbered array! Check with `squeue -u username`.
+> You can also check the output files with `less`. Press `q` to exit out of `less`.
 > {: .solution} 
 {: .challenge} 
 
