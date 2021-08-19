@@ -35,4 +35,6 @@ cd $MYSCRATCH
 git clone https://github.com/SarahBeecroft/Intro2HPC.git
 cd Intro2HPC
 ls
+cd exercises
+ls
 ```

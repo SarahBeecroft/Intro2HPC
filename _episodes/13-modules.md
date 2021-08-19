@@ -36,7 +36,7 @@ The supercomputing admin staff make available many popular packages, so that use
 > Currently Loaded Modules:
 > 1) pawseytools/1.29   2) slurm/20.02.3   3) gcc/4.8.5   4) sandybridge/1.0   5) lmdb/0.9.21   6) blast+/2.7.1
 > ``` 
-> You will notice that blast is loaded, but there are some other modules loaded too. These are loaded by default by the Pawsey systems to ensure a smooth user experience.
+> You will notice that blast is loaded, but there are some other modules loaded too. These are loaded by default on Pawsey systems to ensure a smooth user experience.
 > To test that the blast+ module is working, let's try a small command to get to the help page
 > ```bash
 > blastn -h

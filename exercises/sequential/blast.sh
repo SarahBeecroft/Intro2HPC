@@ -1,7 +1,7 @@
 #!/bin/bash -l
 #SBATCH --reservation=UWAHPC
 #SBATCH --account=courses01
-#SBATCH --n-tasks=1
+#SBATCH --ntasks=1
 #SBATCH --mem-per-cpu=1000M
 #SBATCH --time=00:05:00
 #SBATCH --export=NONE

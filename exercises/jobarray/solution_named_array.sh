@@ -4,15 +4,15 @@
 #
 # This is an array job with four subtasks 
 #SBATCH --reservation=UWAHPC
+#SBATCH --account=courses01
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=1
 #SBATCH --mem-per-cpu=1000M
-#SBATCH --account=courses01
 #SBATCH --time=00:05:00
 #SBATCH --job-name=named_array
 #SBATCH --export=NONE
 #SBATCH --output=named_array-%j.log
-
+#SBATCH --array=0-3
  
  
 #Do not edit the echo sections
@@ -27,7 +27,7 @@ echo "- SLURM_ARRAY_TASK_ID=${SLURM_ARRAY_TASK_ID}"
  
  
 # alter the following line to suit your files. It will grab all files matching whatever regular expression you provide.
-FILES=$(ls *.fasta)
+FILES=($(ls zebrafish*.fasta))
  
 # grabs our filename from a directory listing
 FILENAME=${FILES[$SLURM_ARRAY_TASK_ID]}

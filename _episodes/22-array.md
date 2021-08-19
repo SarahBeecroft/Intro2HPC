@@ -12,7 +12,7 @@ keypoints:
 
 > ## Use two terminal windows if you can
 >
-> If you can, open at least two terminal windows, and connect to the VM from both of them.  In this way, you can use one to edit files, and one to execute commands, thus making your workflow more efficient.
+> If you can, open at least two terminal windows, and connect to Zeus from both of them.  In this way, you can use one to edit files, and one to execute commands, thus making your workflow more efficient.
 {: .callout}
 
 ### Why use a job array?
@@ -36,7 +36,13 @@ Job arrays are really useful when you need to run the same program over a number
 > blastp -use_sw_tback -query 4.fasta -db zebrafish.1.protein.faa -out result4.txt
 > ```
 > 
-> The flag to set an array is `#SBATCH --array=A-Z`, where A and Z specify the start and end of a range of numbers. 
+> In an array setup, these 4 lines can be replaced by a single one, that makes use of an index variable. Such variable comes from slurm, `SLURM_ARRAY_TASK_ID`:
+> 
+> ```bash
+> blastp -use_sw_tback -query ${SLURM_ARRAY_TASK_ID}.fasta -db zebrafish.1.protein.faa -out result${SLURM_ARRAY_TASK_ID}.txt
+> ```
+> 
+> Finally, the flag to set an array is `#SBATCH --array=A-Z`, where A and Z specify the start and end of a range of numbers. 
 > 
 > You can also specify specific numbers (e.g. `#SBATCH --array=1,3`. 
 > 
@@ -86,9 +92,12 @@ ls *.fasta
 zeb_Q4LEZ3.fasta zeb_Q96SE0.fasta zeb_Q9UGJ0.fasta zeb_Q9H221.fasta 
 ```
 
-Using this, we can store all the fasta file names into a `FILES`. We can do this with the following command. This defines the `FILES` variable by calling on a sub-shell within the `$( )`, which executes the `ls` command.
+Using this, we can store all the fasta file names into a `FILES`. We can do this with the following command. This defines the `FILES` array variable by calling on a sub-shell within the `$( )`, which executes the `ls` command. Note the wrapping set of round brackets, required to define a bash array.
 ```bash
-FILES=$(ls *.fasta)
+FILES=($(ls zeb*.fasta))
+
+# to inspect its contents
+echo ${FILES[*]}
 ```
 ```output
 zeb_Q4LEZ3.fasta zeb_Q96SE0.fasta zeb_Q9UGJ0.fasta zeb_Q9H221.fasta 
@@ -117,7 +126,7 @@ It's also important to have the job array flag use 0-indexing, i.e. the array st
 > > 
 > > [...]
 > > 
-> > FILES=$(ls *.fasta)
+> > FILES=($(ls zebrafish*.fasta))
 > > 
 > > [...]
 > > 
@@ -125,8 +134,8 @@ It's also important to have the job array flag use 0-indexing, i.e. the array st
 > > echo "My input file is ${FILENAME}"
 > > ```
 > Then test out your script with `sbatch named_array.sh`
-> It should launch your jobs the same way as with the numbered array! Check with `squeue -u username`
-> You can also check the output files with `less`. Press `q` to exit out of `less`
+> It should launch your jobs the same way as with the numbered array! Check with `squeue -u username`.
+> You can also check the output files with `less`. Press `q` to exit out of `less`.
 > {: .solution} 
 {: .challenge} 
 

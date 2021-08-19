@@ -48,9 +48,9 @@ JOBID    USER     ACCOUNT     PARTITION            NAME EXEC_HOST ST     REASON 
 5136039  ggrover  mwavcs      copyq      nf-volt_downlo       n/a PD ReqNodeNot    Sat 08:00    Sat 12:42    4:42:00     1      75652
 5136062  nswainst mwavcs      copyq      nf-volt_downlo       n/a PD ReqNodeNot    Sat 08:00    Sat 12:42    4:42:00     1      75638
 ```
-**EXEC_HOST** refers to the node which is running the job
-**ST** refers to the state of the job. 'PD' means pending, 'R' means running. 
-**REASON** refers to why the job is not running. **ReqNodeNot** = nodes are not available, **Priority** = a higher priority job exists, **Resources** = waiting on the necessary resources. 
+**EXEC_HOST** refers to the node which is running the job.  
+**ST** refers to the state of the job. 'PD' means pending, 'R' means running.  
+**REASON** refers to why the job is not running. **ReqNodeNot** = nodes are not available, **Priority** = a higher priority job exists, **Resources** = waiting on the necessary resources.  
 
 To refine the listing to just jobs from a certain partition, use the `-p` flag
 ```bash
@@ -109,27 +109,24 @@ cat test.sh
 #SBATCH --reservation=UWAHPC
 #SBATCH --account=courses01
 #SBATCH --nodes=1
-#SBATCH --cpus-per-node=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=1
 #SBATCH --mem-per-cpu=100M
 #SBATCH --time=00:05:00
 #SBATCH --export=NONE
 
-echo 'I am a test job`
-echo `sleeping for 5 minutes`
+echo 'I am a test job'
+echo 'sleeping for 5 minutes'
 sleep 5m
 ```
 
 The `#SBATCH` lines specify to SLURM the computational resources/specifications we want for our job. It is also important to note that SLURM job scripts start with `#!/bin/bash` because they are essentially bash scripts.  
-
 The `--reservation` flag specifies that we will use the special reservation for this training session. You wouldn't need to specify that typically.  
-
-The `--account` flag tells the system which allocation to 'charge' for the compute time. 
-
-The `--nodes` flag specifies how many nodes you want to use. 
-
-The `--cores` flag specifies how many cores per node. 
-
-The `--mem-per-cpu` flag specifies how much memory to use per CPU. On Zeus the max is 4GB, but for this job it's set very low. 
-
-The `--time` flag sets the maximum allowable time for your job to run (i.e. the wall-clock limit). This job is set to get cut-off by SLURM at the 5 minute mark.
+The `--account` flag tells the system which allocation to 'charge' for the compute time.  
+The `--nodes` flag specifies how many nodes you want to use.  
+The `--ntasks-per-node` flag specifies how many tasks per node you want to run.  
+The `--cpus-per-task` flag specifies how many CPUs (cores) per task you need. 
+The total number of required CPUs (cores) is then `ntasks-per-node*cpus-per-task`; on Zeus the max is 28.
+The `--mem-per-cpu` flag specifies how much memory to use per CPU (core). On Zeus the max is 4GB, but for this job it's set very low.  
+The `--time` flag sets the maximum allowable time for your job to run (i.e. the wall-clock limit). This job is set to get cut-off by SLURM at the 5 minute mark.  
 

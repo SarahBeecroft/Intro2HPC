@@ -1,7 +1,7 @@
 #!/bin/bash -l
 #SBATCH --reservation=UWAHPC
-#SBATCH -n 1 
 #SBATCH -A courses01
+#SBATCH -n 1 
 #SBATCH -t 00:05:00
 #SBATCH --export=NONE
 
