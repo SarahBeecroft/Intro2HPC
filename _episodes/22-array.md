@@ -12,7 +12,7 @@ keypoints:
 
 > ## Use two terminal windows if you can
 >
-> If you can, open at least two terminal windows, and connect to Zeus from both of them.  In this way, you can use one to edit files, and one to execute commands, thus making your workflow more efficient.
+> If you can, open at least two terminal windows, and connect to Setonix from both of them.  In this way, you can use one to edit files, and one to execute commands, thus making your workflow more efficient.
 {: .callout}
 
 ### Why use a job array?
