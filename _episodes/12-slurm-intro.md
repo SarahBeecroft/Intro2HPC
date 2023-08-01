@@ -20,17 +20,36 @@ sinfo
 
 ```output
 PARTITION AVAIL JOB_SIZE  TIMELIMIT   CPUS  S:C:T   NODES STATE      NODELIST
-workq*    up    1-8      1-00:00:00     28 2:14:1      29 mixed      z[043-045,047-048,051,053,055-058,060,091-092,094-100,109-110,115-116,122-125]
-workq*    up    1-8      1-00:00:00     28 2:14:1      55 allocated  z[046,049-050,052,054,059,061-090,093,101-108,111-114,117-121,126]
-longq     up    1        4-00:00:00     28 2:14:1       4 mixed      z[122-125]
-longq     up    1        4-00:00:00     28 2:14:1       4 allocated  z[119-121,126]
-debugq    up    1-4         1:00:00     28 2:14:1       4 idle       z[127-130]
-highmemq  up    1-4      4-00:00:00     16  2:8:1       1 allocated  z135
-highmemq  up    1-4      4-00:00:00     16  2:8:1       5 idle       z[136-140]
-copyq     up    1-infini 2-00:00:00     32 2:16:1       1 down*      hpc-data7
-copyq     up    1-infini 2-00:00:00     32 2:16:1       6 idle       hpc-data[1-6]
-copyq     up    1-infini 2-00:00:00     32 2:16:1       1 down       hpc-data8
+work*     up    1-infini 1-00:00:00    256 2:64:2       3 planned    nid[001137,001401-001402]
+work*     up    1-infini 1-00:00:00    256 2:64:2      38 down$      nid[001011,001046,001071,001086,001104-001111,001126,001135,001187,001190,001243,001273,001282-001283,001303,001307,001420,001563,001689,002038,002049,002304,002321,002348,002442,002562,002564-002567,002585,002805]
+work*     up    1-infini 1-00:00:00    256 2:64:2       5 completing nid[001017,001036,001227,001412,002818]
+work*     up    1-infini 1-00:00:00    256 2:64:2       3 down*      nid[001338-001339,002433]
+work*     up    1-infini 1-00:00:00    256 2:64:2       1 completing nid002312
+work*     up    1-infini 1-00:00:00    256 2:64:2       9 drained    nid[001146-001147,001152-001155,001159,001204,001512]
+long      up    1        4-00:00:00    256 2:64:2       2 mixed      nid[002596,002603]
+long      up    1        4-00:00:00    256 2:64:2       6 allocated  nid[002597-002602]
+copy      up    1-infini 2-00:00:00     64 1:32:2       3 mixed      setonix-dm[01-03]
+copy      up    1-infini 2-00:00:00     64 1:32:2       1 down       setonix-dm04
+askaprt   up    1-infini 1-00:00:00    256 2:64:2       9 down$      nid[001803,001854,001869,001885,001973,001986-001987,002641,002643]
+askaprt   up    1-infini 1-00:00:00    256 2:64:2       2 mixed$     nid[001768,001831]
+askaprt   up    1-infini 1-00:00:00    256 2:64:2       1 completing nid002751
+askaprt   up    1-infini 1-00:00:00    256 2:64:2       1 reserved   nid002636
+askaprt   up    1-infini 1-00:00:00    256 2:64:2      11 mixed      nid[002615-002616,002619,002621,002625,002628-002629,002633,002635,002644,002675]
+debug     up    1-4         1:00:00    256 2:64:2       8 maint      nid[002604-002611]
+highmem   up    1        4-00:00:00    256 2:64:2       1 mixed      nid001505
+highmem   up    1        4-00:00:00    256 2:64:2       6 allocated  nid[001504,001506-001509,001511]
+highmem   up    1        4-00:00:00    256 2:64:2       1 idle       nid001510
+gpu       up    1-infini 1-00:00:00    128  8:8:2       5 maint      nid[002836,002856,002864,002866,002882]
+gpu       up    1-infini 1-00:00:00    128  8:8:2       1 down*      nid002834
+gpu       up    1-infini 1-00:00:00    128  8:8:2       2 idle       nid[002932,002938]
+gpu-dev   up    1-infini    4:00:00    128  8:8:2       4 down$      nid[002944,002946,003008,003010]
+gpu-dev   up    1-infini    4:00:00    128  8:8:2      16 idle       nid[002948,002950,002984,002986,002988,002990,002992,002994,002996,002998,003000,003002,003004,003006,003012,003014]
+gpu-highm up    1-infini 1-00:00:00    128  8:8:2       4 down$      nid[002888,002908,002968,002976]
+gpu-highm up    1-infini 1-00:00:00    128  8:8:2       6 maint      nid[002890,002900,002902,002910,002970,002978]
+gpu-highm up    1-infini 1-00:00:00    128  8:8:2       5 mixed      nid[002956,002958,002962,002964,002966]
+casda     up    1-infini 1-00:00:00     64 1:32:2       1 idle       casda-an01
 ```
+
 
 ### Using squeue to check running jobs
 To see what jobs are already running in the local cluster
@@ -39,14 +58,13 @@ squeue
 ```
 
 ```output
-JOBID    USER     ACCOUNT     PARTITION            NAME EXEC_HOST ST     REASON   START_TIME     END_TIME  TIME_LEFT NODES   PRIORITY
-5118662  datamonk pawsey0001  copyq      "blast_updated hpc-data4 PD  BeginTime  1 Sep 01:00  1 Sep 07:00    6:00:00     1      75124
-5134303  jpeterei pawsey0149  workq        reminder_bot       n/a PD  BeginTime    Mon 10:26    Mon 10:56      30:00     1      75026
-5134852  kross    pawsey0272  copyq      manta_121_xtra       n/a PD ReqNodeNot    Sat 08:00    Mon 08:00 2-00:00:00     1      75167
-5136035  ggrover  mwavcs      copyq      nf-volt_downlo       n/a PD ReqNodeNot    Sat 08:00    Sat 12:42    4:42:00     1      75653
-5136036  ggrover  mwavcs      copyq      nf-volt_downlo       n/a PD ReqNodeNot    Sat 08:00    Sat 12:42    4:42:00     1      75652
-5136039  ggrover  mwavcs      copyq      nf-volt_downlo       n/a PD ReqNodeNot    Sat 08:00    Sat 12:42    4:42:00     1      75652
-5136062  nswainst mwavcs      copyq      nf-volt_downlo       n/a PD ReqNodeNot    Sat 08:00    Sat 12:42    4:42:00     1      75638
+ JOBID  PARTITION     USER ACCOUNT                    NAME  ST REASON    START_TIME                TIME  TIME_LEFT NODES CPUS PRIORITY NODELIST
+363117       long      *** pawsey0399      str_detect_chr3   R None      09:07:19               9:30:05 3-14:29:55     1   34 90037 nid002596
+363117       long      *** pawsey0399           str_detect   R None      09:07:19               9:30:05 3-14:29:55     1   34 90037 nid002596
+356825       long   ****** d71              70_update_long   R None      08:29:18              10:08:07 3-13:51:53     1  256 120309 nid002597
+348465       long  ******* pawsey0386         M2s60TD_smLO   R None      08:29:18              10:08:07 3-13:51:53     1  256 90579 nid002601
+362041    highmem   ****** pawsey0263      asm_Hexaprotodo   R None      05:38:49              12:58:36 3-11:01:24     1  128 75289 nid001505
+347976       long ******** pawsey0106         Coupling_eta   R None      08:29:18              10:08:07 2-13:51:53     1   48 120819 nid002596
 ```
 **EXEC_HOST** refers to the node which is running the job.  
 **ST** refers to the state of the job. 'PD' means pending, 'R' means running.  
@@ -54,22 +72,23 @@ JOBID    USER     ACCOUNT     PARTITION            NAME EXEC_HOST ST     REASON 
 
 To refine the listing to just jobs from a certain partition, use the `-p` flag
 ```bash
-squeue -p workq
+squeue -p work
 ```
 ```output
-JOBID    USER     ACCOUNT     PARTITION            NAME EXEC_HOST ST     REASON   START_TIME     END_TIME  TIME_LEFT NODES   PRIORITY
-5134303  jpeterei pawsey0149  workq        reminder_bot       n/a PD  BeginTime    Mon 10:26    Mon 10:56      30:00     1      75026
-5136069  qguan    pawsey0168  workq                 vmd       n/a PD Nodes requ          N/A          N/A      30:00     1      75635
-5134302  asim     pawsey0142  workq                 goo       n/a PD ReqNodeNot          N/A          N/A 1-00:00:00     1      75225
-5134322  asim     pawsey0142  workq                  go       n/a PD ReqNodeNot          N/A          N/A 1-00:00:00     1      75224
-5136076  betschma pawsey0379  workq      ace_1000C_50kb       n/a PD ReqNodeNot          N/A          N/A   23:30:00     1      75215
-5135685  asim     pawsey0142  workq                  to       n/a PD ReqNodeNot          N/A          N/A 1-00:00:00     1      75210
-5136068  lenhan   dv1         workq           Zues-2.sh       n/a PD ReqNodeNot          N/A          N/A    1:00:00     1      75172
+ JOBID  PARTITION     USER ACCOUNT                    NAME  ST REASON    START_TIME                TIME  TIME_LEFT NODES CPUS PRIORITY NODELIST
+357595       work     **** pawsey0380      S13_RA110_S320_   R None      18:39:15                  0:23   23:59:37     1  256 75282 nid001568
+363718       work   ****** pawsey0382               lammps   R None      18:37:14                  2:24   23:57:36     1  128 75119 nid001608
+363718       work   ****** pawsey0382               lammps   R None      18:35:42                  3:56   23:56:04     1  128 75119 nid001137
+357595       work     **** pawsey0380      S13_RA110_S320_   R None      18:35:08                  4:30   23:55:30     1  256 75282 nid002352
+363718       work   ****** pawsey0382               lammps   R None      18:30:34                  9:04   23:50:56     1  128 75118 nid001200
+357595       work     **** pawsey0380      S13_RA110_S320_   R None      18:28:35                 11:03   23:48:57     1  256 75281 nid001398
+363826       work      *** m49                  CuO-111-Vo   R None      18:22:22                 17:16   23:42:44     1  144 75054 nid001516
+
 ```
 
 To refine the listing to a certain user (usually yourself), use the `-u` flag
 ```bash
-squeue -u username
+squeue -u $USER
 ```
 
 > ## Submitting a job to the queue using sbatch
@@ -81,7 +100,7 @@ squeue -u username
 >
 > Can you see your job running in the queue? What is the jod ID?
 > ```bash
-> squeue -u username
+> squeue -u $USER
 > ```
 >
 > ## Cancelling a submitted job using scancel
@@ -94,7 +113,7 @@ squeue -u username
 >
 > You can also cancel all jobs under your name with 
 > ```bash
-> scancel -u username
+> scancel -u $USER
 > ```
 {: .challenge}
 
@@ -106,7 +125,7 @@ cat test.sh
 
 ```output
 #!/bin/bash -l
-#SBATCH --reservation=UWAHPC
+#SBATCH --reservation=UWA
 #SBATCH --account=courses01
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
