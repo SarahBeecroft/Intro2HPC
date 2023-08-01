@@ -1,10 +1,10 @@
 ---
-title: "Logging on to Zeus"
+title: "Logging on to Setonix"
 teaching: 5
 exercises: 10
 questions:
 objectives:
-- Learn how to remote access Zeus
+- Learn how to remote access Setonix
 keypoints:
 - Logging on to Pawsey systems uses SSH (secure shell)
 ---
@@ -13,7 +13,7 @@ keypoints:
 Your user name and password will be supplied. Within a terminal window, type:
 
 ```bash
-ssh username@zeus.pawsey.org.au
+ssh username@setonix.pawsey.org.au
 ```
 
 Enter your password when prompted. If asked to accept any credentials, type `yes` and hit enter
@@ -21,7 +21,7 @@ Enter your password when prompted. If asked to accept any credentials, type `yes
 If you have successfully logged in, you should see your command prompt change
 
 ```output
-username@zeus-1:~>
+username@setonix-01:~>
 ```
 
 If you are unable to login, please first check your password was typed correctly. If you are still unable to login, please ask for assistance.
