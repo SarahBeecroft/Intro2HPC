@@ -1,10 +1,10 @@
 #!/bin/bash -l
-#SBATCH --reservation=UWAHPC
+#SBATCH --reservation=UWA
 #SBATCH --account=courses01
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=1
-#SBATCH --mem-per-cpu=100M
+#SBATCH --mem=100M
 #SBATCH --time=00:05:00
 #SBATCH --export=NONE
 
