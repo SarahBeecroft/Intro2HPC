@@ -44,7 +44,7 @@ cd $MYSCRATCH/Intro2HPC/exercises/sequential
 > How can you check the status of your job(s) and view the job ID while they're running?
 > 
 > > ## Solution
-> > `squeue -u username`
+> > `squeue -u $USER`
 > {: .solution}
 {: .challenge}
 
