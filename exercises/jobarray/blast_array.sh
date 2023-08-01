@@ -3,7 +3,7 @@
 # SLURM directives
 #
 # This is an array job with four subtasks 
-#SBATCH --reservation=UWAHPC
+#SBATCH --reservation=UWA
 #SBATCH --account=courses01
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=1
@@ -12,7 +12,7 @@
 #SBATCH --export=NONE
 #SBATCH --output=MYJOB-%j.log
 
-## ADD #SBATCH LINE BELOW TO MAKE A JOB ARRAY
+## YOU ADD #SBATCH LINE BELOW TO MAKE A JOB ARRAY
 
 
 #Do not edit the echo sections
@@ -26,11 +26,8 @@ echo "- SLURM_JOB_ID=${SLURM_JOB_ID}"
 echo "- SLURM_ARRAY_TASK_ID=${SLURM_ARRAY_TASK_ID}"
 
 
-# Swap gcc module version
-module swap gcc/4.8.5 gcc/8.3.0
-
 # Load Blast+ module
-module load blast+
+module load blast/2.12.0--pl5262h3289130_0
 
 # Run Blast comparisons
 blastp -use_sw_tback -query ${SLURM_ARRAY_TASK_ID}.fasta -db zebrafish.1.protein.faa -out result${SLURM_ARRAY_TASK_ID}.txt
