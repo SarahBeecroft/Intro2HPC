@@ -3,11 +3,11 @@
 # SLURM directives
 #
 # This is an array job with four subtasks 
-#SBATCH --reservation=UWAHPC
+#SBATCH --reservation=UWA
 #SBATCH --account=courses01
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=1
-#SBATCH --mem-per-cpu=1000M
+#SBATCH --mem=1000M
 #SBATCH --time=00:05:00
 #SBATCH --job-name=named_array
 #SBATCH --export=NONE
@@ -32,12 +32,8 @@ echo "- SLURM_ARRAY_TASK_ID=${SLURM_ARRAY_TASK_ID}"
  
 # EDIT THIS LINE grab filename from directory listing
 
-
-# Swap gcc module version
-module swap gcc/4.8.5 gcc/8.3.0
-
 # Load Blast+ module
-module load blast+
+module load blast/2.12.0--pl5262h3289130_0
 
 # Run Blast comparisons
 blastp -use_sw_tback -query ${FILENAME} -db zebrafish.1.protein.faa -out result.${FILENAME}.txt
