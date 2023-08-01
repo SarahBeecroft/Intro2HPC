@@ -9,7 +9,7 @@ keypoints:
 - Logging on to Pawsey systems uses SSH (secure shell)
 ---
 
-### Logging on to Zeus
+### Logging on to Setonix
 Your user name and password will be supplied. Within a terminal window, type:
 
 ```bash
@@ -28,7 +28,7 @@ If you are unable to login, please first check your password was typed correctly
 
 
 ### Downloading the lesson material
-There are some materials for the lessons which are hosted on github. In order to access those on Zeus, you will need to clone the git repo, then change directory. You can list the contents of the directory with `ls`
+There are some materials for the lessons which are hosted on github. In order to access those on Setonix, you will need to clone the git repo, then change directory. You can list the contents of the directory with `ls`
 
 ```bash
 cd $MYSCRATCH
