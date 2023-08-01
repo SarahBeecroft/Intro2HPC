@@ -1,16 +1,13 @@
 #!/bin/bash -l
-#SBATCH --reservation=UWAHPC
+#SBATCH --reservation=UWA
 #SBATCH --account=courses01
 #SBATCH --ntasks=1
-#SBATCH --mem-per-cpu=1000M
+#SBATCH --mem=1000M
 #SBATCH --time=00:05:00
 #SBATCH --export=NONE
 
-# Swap gcc module version
-module swap gcc/4.8.5 gcc/8.3.0
-
 # Load Blast+ module
-module load blast+
+module load blast/2.12.0--pl5262h3289130_0
 
 # Download file
 bash download.sh
