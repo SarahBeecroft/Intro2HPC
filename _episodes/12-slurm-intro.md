@@ -130,7 +130,7 @@ cat test.sh
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=1
-#SBATCH --mem-per-cpu=100M
+#SBATCH --mem=100M
 #SBATCH --time=00:05:00
 #SBATCH --export=NONE
 
@@ -145,7 +145,6 @@ The `--account` flag tells the system which allocation to 'charge' for the compu
 The `--nodes` flag specifies how many nodes you want to use.  
 The `--ntasks-per-node` flag specifies how many tasks per node you want to run.  
 The `--cpus-per-task` flag specifies how many CPUs (cores) per task you need. 
-The total number of required CPUs (cores) is then `ntasks-per-node*cpus-per-task`; on Zeus the max is 28.
-The `--mem-per-cpu` flag specifies how much memory to use per CPU (core). On Zeus the max is 4GB, but for this job it's set very low.  
+The `--mem` flag specifies how much memory to use per job.
 The `--time` flag sets the maximum allowable time for your job to run (i.e. the wall-clock limit). This job is set to get cut-off by SLURM at the 5 minute mark.  
 
