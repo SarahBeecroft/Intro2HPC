@@ -10,10 +10,8 @@ keypoints:
 - Specify a job array with `#SBATCH --array` flag
 ---
 
-> ## Use two terminal windows if you can
->
-> If you can, open at least two terminal windows, and connect to Setonix from both of them.  In this way, you can use one to edit files, and one to execute commands, thus making your workflow more efficient.
-{: .callout}
+## Use two terminal windows if you can
+If you can, open at least two terminal windows, and connect to Setonix from both of them.  In this way, you can use one to edit files, and one to execute commands, thus making your workflow more efficient.
 
 ### Why use a job array?
 Job arrays are really useful when you need to run the same program over a number of files. In non-supercomputing environments, you might use a (for) loop or gnu parallel. However, we can make slurm perform parallelisation for us with minimal effort by making use of the `--array` flag. SLURM will launch a sub-job for each input file simultaneously, or as resources become available. Running jobs in parallel, rather than one after the other, saves a lot of time for you as the user. 
