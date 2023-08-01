@@ -13,7 +13,7 @@ keypoints:
 
 ### Goal
 
-In this exercise, you're going to download BLAST reference sequences to Zeus, make a BLAST database, and run queries in series (one at a time). 
+In this exercise, you're going to download BLAST reference sequences to Setonix, make a BLAST database, and run queries in series (one at a time). 
 
 The demo directory `exercises/sequential` contains two scripts. One script is to download the fasta files, and the other is to perform the BLAST query.
 
