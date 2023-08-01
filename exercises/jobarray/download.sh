@@ -1,7 +1,6 @@
 #!/bin/bash -l
 #SBATCH -A courses01
-#SBATCH -M zeus
-#SBATCH -p copyq
+#SBATCH -p copy
 #SBATCH -n 1 
 #SBATCH -t 00:05:00
 #SBATCH --export=NONE
