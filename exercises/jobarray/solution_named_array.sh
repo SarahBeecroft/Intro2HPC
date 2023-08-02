@@ -3,7 +3,7 @@
 # SLURM directives
 #
 # This is an array job with four subtasks 
-#SBATCH --reservation=UWAHPC
+#SBATCH --reservation=UWATraining
 #SBATCH --account=courses01
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=1
