@@ -1,5 +1,5 @@
 #!/bin/bash -l
-#SBATCH --reservation=UWA
+#SBATCH --reservation=UWATraining
 #SBATCH -A courses01
 #SBATCH -n 1 
 #SBATCH -t 00:05:00
