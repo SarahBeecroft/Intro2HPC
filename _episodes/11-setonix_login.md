@@ -30,7 +30,9 @@ If you are unable to login, please first check your password was typed correctly
 
 ### Logging in using PUTTY (Windows)
 Host name is `setonix.pawsey.org.au`
+
 Port is `22`
+
 User name is the name you selected on the training accounts sheet- e.g. something like `cou001`
 
 Helpful link: https://www.hostinger.com/tutorials/how-to-use-putty-ssh
