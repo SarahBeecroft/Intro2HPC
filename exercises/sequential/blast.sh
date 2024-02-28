@@ -1,5 +1,5 @@
 #!/bin/bash -l
-#SBATCH --reservation=UWATraining
+#SBATCH --reservation=UWAbioinformatics
 #SBATCH --account=courses01
 #SBATCH --ntasks=1
 #SBATCH --mem=1000M
